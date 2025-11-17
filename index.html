@@ -2,941 +2,384 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>AI Ze · Personal Site</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="AI Ze 的个人网站 · 学习、项目与日常记录" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link rel="apple-touch-icon" sizes="76x76"
+        href="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/apple-icon.png" />
+    <link rel="icon" type="image/png" href="https://demos.creative-tim.com/soft-ui-dashboard/assets/img/favicon.png" />
+
+    <title>AI Ze · Personal Dashboard</title>
+
+    <!-- Fonts and icons（Soft UI 官方配置） -->
+    <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,800" rel="stylesheet" />
+    <link href="https://demos.creative-tim.com/soft-ui-dashboard/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="https://demos.creative-tim.com/soft-ui-dashboard/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+
+    <!-- Soft UI Dashboard CSS -->
+    <link id="pagestyle"
+        href="https://demos.creative-tim.com/soft-ui-dashboard/assets/css/soft-ui-dashboard.css?v=1.1.0"
         rel="stylesheet" />
-    <style>
-        :root {
-            --bg: #0f172a;
-            --bg-soft: #111827;
-            --bg-card: #020617;
-            --accent: #22c55e;
-            --accent-soft: rgba(34, 197, 94, 0.15);
-            --accent-alt: #38bdf8;
-            --border-subtle: rgba(148, 163, 184, 0.25);
-            --text-main: #e5e7eb;
-            --text-soft: #9ca3af;
-            --text-weak: #6b7280;
-            --danger: #f97373;
-            --radius-lg: 18px;
-            --radius-xl: 26px;
-            --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.75);
-            --shadow-chip: 0 8px 25px rgba(15, 23, 42, 0.9);
-            --transition-fast: 160ms ease-out;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-                "SF Pro Text", "Segoe UI", sans-serif;
-            background:
-                radial-gradient(circle at top left, #0ea5e933 0, transparent 60%),
-                radial-gradient(circle at bottom right, #22c55e33 0, transparent 55%),
-                linear-gradient(135deg, #020617, #020617);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            padding: 32px 16px 40px;
-        }
-
-        .page {
-            width: 100%;
-            max-width: 1120px;
-            display: grid;
-            grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.4fr);
-            gap: 20px;
-            position: relative;
-        }
-
-        @media (max-width: 880px) {
-            body {
-                padding: 16px 12px 28px;
-            }
-
-            .page {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
-        .glow-orb {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            opacity: 0.9;
-            mix-blend-mode: screen;
-            z-index: -1;
-        }
-
-        .glow-orb::before,
-        .glow-orb::after {
-            content: "";
-            position: absolute;
-            border-radius: 999px;
-            filter: blur(42px);
-            opacity: 0.38;
-        }
-
-        .glow-orb::before {
-            width: 230px;
-            height: 230px;
-            background: radial-gradient(circle, #22c55e, transparent 70%);
-            top: 5%;
-            left: 6%;
-        }
-
-        .glow-orb::after {
-            width: 260px;
-            height: 260px;
-            background: radial-gradient(circle, #0ea5e9, transparent 70%);
-            bottom: 0%;
-            right: 5%;
-        }
-
-        /* 左侧主列 */
-        .column-main {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        /* 右侧侧栏 */
-        .column-side {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .card {
-            background: radial-gradient(circle at top left, #1f293720 0, transparent 55%),
-                rgba(15, 23, 42, 0.96);
-            border-radius: var(--radius-xl);
-            border: 1px solid rgba(148, 163, 184, 0.22);
-            box-shadow: var(--shadow-soft);
-            padding: 18px 18px 16px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            border: 1px solid transparent;
-            background:
-                linear-gradient(135deg, rgba(148, 163, 184, 0.05), transparent 40%) border-box;
-            mask:
-                linear-gradient(#000 0 0) padding-box,
-                linear-gradient(#000 0 0);
-            mask-composite: exclude;
-            opacity: 0.9;
-            pointer-events: none;
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            margin-bottom: 8px;
-        }
-
-        .card-title {
-            font-size: 0.86rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--text-weak);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .pill-dot {
-            width: 9px;
-            height: 9px;
-            border-radius: 999px;
-            background: radial-gradient(circle, var(--accent), #22c55e22);
-            box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
-        }
-
-        .card-action-text {
-            font-size: 0.75rem;
-            color: var(--accent-alt);
-            cursor: default;
-            opacity: 0.9;
-        }
-
-        /* 顶部个人简介卡片 */
-        .hero {
-            display: grid;
-            grid-template-columns: auto minmax(0, 1fr);
-            gap: 16px;
-            align-items: center;
-        }
-
-        @media (max-width: 620px) {
-            .hero {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
-        .avatar-wrap {
-            width: 80px;
-            height: 80px;
-            border-radius: 32px;
-            background: conic-gradient(from 140deg,
-                    #22c55e,
-                    #0ea5e9,
-                    #6366f1,
-                    #22c55e);
-            padding: 3px;
-            box-shadow: 0 16px 45px rgba(15, 23, 42, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .avatar-inner {
-            width: 100%;
-            height: 100%;
-            border-radius: 26px;
-            background: radial-gradient(circle at 30% 0, #22c55e26 0, transparent 40%),
-                #020617;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: #e5e7eb;
-        }
-
-        .hero-main {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .hero-name {
-            font-size: 1.35rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-        }
-
-        .hero-tag {
-            font-size: 0.78rem;
-            padding: 3px 8px;
-            border-radius: 999px;
-            background: rgba(15, 23, 42, 0.93);
-            border: 1px solid rgba(148, 163, 184, 0.4);
-            color: var(--text-soft);
-        }
-
-        .hero-subtitle {
-            font-size: 0.9rem;
-            color: var(--text-soft);
-            line-height: 1.5;
-        }
-
-        .hero-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 4px;
-        }
-
-        .badge {
-            font-size: 0.72rem;
-            padding: 4px 9px;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.4);
-            color: var(--text-soft);
-            background: rgba(15, 23, 42, 0.95);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            white-space: nowrap;
-        }
-
-        .badge-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 999px;
-            background: var(--accent);
-        }
-
-        .hero-links {
-            margin-top: 8px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .link-chip {
-            font-size: 0.78rem;
-            padding: 6px 11px;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.4);
-            background: rgba(15, 23, 42, 0.96);
-            color: var(--text-main);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: var(--shadow-chip);
-            transition: transform var(--transition-fast),
-                box-shadow var(--transition-fast),
-                border-color var(--transition-fast),
-                background var(--transition-fast),
-                color var(--transition-fast);
-        }
-
-        .link-chip span {
-            font-size: 0.82rem;
-        }
-
-        .link-chip:hover {
-            transform: translateY(-1px);
-            border-color: rgba(56, 189, 248, 0.8);
-            background: radial-gradient(circle at top left, #0f172a, #020617);
-            color: #e5e7eb;
-            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.95);
-        }
-
-        /* Sections inside cards */
-        .section-title-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 4px;
-        }
-
-        .section-title {
-            font-size: 0.84rem;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: var(--text-weak);
-        }
-
-        .section-extra {
-            font-size: 0.75rem;
-            color: var(--text-soft);
-        }
-
-        /* 最近在做什么（类似 dashboard） */
-        .now-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        @media (max-width: 620px) {
-            .now-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        .now-item {
-            border-radius: 16px;
-            border: 1px solid rgba(148, 163, 184, 0.25);
-            padding: 9px 9px 8px;
-            background: radial-gradient(circle at top left, #0f172a40, transparent 55%),
-                rgba(15, 23, 42, 0.9);
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .now-label {
-            font-size: 0.73rem;
-            color: var(--text-weak);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .now-main {
-            font-size: 0.82rem;
-            color: var(--text-main);
-        }
-
-        .pill-small {
-            font-size: 0.68rem;
-            padding: 1px 7px;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.45);
-            color: var(--text-soft);
-        }
-
-        .progress {
-            width: 100%;
-            height: 5px;
-            border-radius: 999px;
-            background: rgba(15, 23, 42, 1);
-            overflow: hidden;
-            margin-top: 4px;
-        }
-
-        .progress-bar {
-            height: 100%;
-            border-radius: 999px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-alt));
-            width: 60%;
-        }
-
-        .progress-bar.alt {
-            background: linear-gradient(90deg, #38bdf8, #6366f1);
-        }
-
-        .progress-bar.chill {
-            background: linear-gradient(90deg, #f97373, #fb923c);
-        }
-
-        /* 时间线（最近更新 / 生活流） */
-        .timeline {
-            margin-top: 12px;
-            border-left: 1px dashed rgba(148, 163, 184, 0.35);
-            padding-left: 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .tl-item {
-            position: relative;
-            padding-left: 4px;
-        }
-
-        .tl-item::before {
-            content: "";
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: radial-gradient(circle, var(--accent), #22c55e33);
-            border-radius: 999px;
-            border: 1px solid #22c55eaa;
-            left: -18px;
-            top: 5px;
-            box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
-        }
-
-        .tl-meta {
-            font-size: 0.72rem;
-            color: var(--text-weak);
-        }
-
-        .tl-text {
-            font-size: 0.83rem;
-            color: var(--text-main);
-            margin-top: 2px;
-        }
-
-        /* Projects cards in main */
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        @media (max-width: 960px) {
-            .projects {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 620px) {
-            .projects {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
-        .project-card {
-            border-radius: 18px;
-            border: 1px solid rgba(148, 163, 184, 0.25);
-            background: radial-gradient(circle at top left, #0f172a40, transparent 60%),
-                rgba(15, 23, 42, 0.92);
-            padding: 10px 10px 9px;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .project-tag-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .project-tag {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.11em;
-            color: var(--text-weak);
-        }
-
-        .project-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 999px;
-            background: #22c55e;
-            box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
-        }
-
-        .project-name {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #e5e7eb;
-        }
-
-        .project-desc {
-            font-size: 0.78rem;
-            color: var(--text-soft);
-            line-height: 1.4;
-        }
-
-        .project-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 4px;
-        }
-
-        .project-pill {
-            font-size: 0.7rem;
-            padding: 3px 8px;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.4);
-            color: var(--text-soft);
-        }
-
-        .project-link {
-            font-size: 0.75rem;
-            color: var(--accent-alt);
-            text-decoration: none;
-        }
-
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
-        /* 小习惯 / 小目标 */
-        .habit-list {
-            margin-top: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .habit-item {
-            border-radius: 14px;
-            border: 1px solid rgba(148, 163, 184, 0.25);
-            padding: 8px 9px 7px;
-            background: rgba(15, 23, 42, 0.96);
-        }
-
-        .habit-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .habit-name {
-            font-size: 0.82rem;
-            color: var(--text-main);
-        }
-
-        .habit-meta {
-            font-size: 0.73rem;
-            color: var(--text-soft);
-        }
-
-        .habit-pill {
-            font-size: 0.7rem;
-            padding: 2px 7px;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.45);
-            color: var(--text-soft);
-        }
-
-        .habit-bar {
-            margin-top: 5px;
-            width: 100%;
-            height: 4px;
-            border-radius: 999px;
-            background: rgba(15, 23, 42, 1);
-            overflow: hidden;
-        }
-
-        .habit-bar-inner {
-            height: 100%;
-            border-radius: 999px;
-            background: linear-gradient(90deg, var(--accent-alt), var(--accent));
-            width: 70%;
-        }
-
-        .habit-bar-inner.low {
-            width: 35%;
-            background: linear-gradient(90deg, #f97373, #fb923c);
-        }
-
-        /* Contact card */
-        .contact-grid {
-            margin-top: 10px;
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 8px;
-        }
-
-        @media (max-width: 620px) {
-            .contact-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
-        .contact-item {
-            border-radius: 15px;
-            border: 1px solid rgba(148, 163, 184, 0.25);
-            padding: 7px 9px;
-            background: rgba(15, 23, 42, 0.95);
-            font-size: 0.8rem;
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .contact-label {
-            font-size: 0.7rem;
-            color: var(--text-weak);
-            text-transform: uppercase;
-            letter-spacing: 0.09em;
-        }
-
-        .contact-value a {
-            color: var(--text-main);
-            text-decoration: none;
-        }
-
-        .contact-value a:hover {
-            text-decoration: underline;
-            color: var(--accent-alt);
-        }
-
-        /* Footer */
-        .footer-note {
-            margin-top: 10px;
-            font-size: 0.72rem;
-            color: var(--text-weak);
-            text-align: right;
-        }
-    </style>
 </head>
 
-<body>
-    <div class="glow-orb"></div>
+<body class="g-sidenav-show bg-gray-100">
 
-    <main class="page">
-        <!-- 左侧主内容 -->
-        <section class="column-main">
-            <!-- 顶部个人信息 -->
-            <section class="card">
-                <div class="card-header">
-                    <div class="card-title">
-                        <span class="pill-dot"></span>
-                        Personal Dashboard
-                    </div>
-                    <div class="card-action-text">last update: 2025</div>
-                </div>
+    <!-- 顶部导航栏（简化版） -->
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl mt-3" id="navbarBlur"
+        navbar-scroll="true">
+        <div class="container-fluid py-1 px-3">
+            <nav aria-label="breadcrumb">
+                <h6 class="font-weight-bolder mb-0">AI Ze · Personal Dashboard</h6>
+                <span class="text-xs text-secondary">不太正式的个人主页 / 控制面板</span>
+            </nav>
+            <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                <ul class="navbar-nav  justify-content-end ms-auto">
+                    <li class="nav-item d-flex align-items-center">
+                        <a href="https://github.com/AI-Ze" target="_blank"
+                            class="btn btn-sm bg-gradient-success mb-0 px-3">
+                            <i class="fab fa-github me-2"></i> GitHub
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-                <div class="hero">
-                    <div class="avatar-wrap">
-                        <div class="avatar-inner">
-                            <span>ZE</span>
-                        </div>
-                    </div>
+    <!-- 主内容 -->
+    <main class="main-content mt-4">
+        <div class="container-fluid py-4">
 
-                    <div class="hero-main">
-                        <div class="hero-name">
-                            AI Ze
-                            <span class="hero-tag">building a not-so-formal life log</span>
-                        </div>
-                        <p class="hero-subtitle">
-                            你好，我是 <strong>AI Ze</strong>。这是一个比“学术主页”更松弛一点的个人网站——
-                            记录我在学习、编程、AI 和日常生活里的小进展。
-                        </p>
+            <!-- 第一行：左边是个人卡片，右边是“最近在做什么” -->
+            <div class="row">
 
-                        <div class="hero-badges">
-                            <span class="badge">
-                                <span class="badge-dot"></span>
-                                喜欢把 TODO 做成好看的卡片
-                            </span>
-                            <span class="badge">
-                                <span class="badge-dot"></span>
-                                AI / Web / 学习记录 / 小玩具项目
-                            </span>
-                            <span class="badge">
-                                <span class="badge-dot"></span>
-                                正在慢慢更新中…
-                            </span>
-                        </div>
-
-                        <div class="hero-links">
-                            <!-- 这里的链接你可以替换成自己的 -->
-                            <a class="link-chip" href="https://github.com/AI-Ze" target="_blank" rel="noreferrer">
-                                <span>GitHub</span>
-                            </a>
-                            <a class="link-chip" href="mailto:your_mail@example.com">
-                                <span>Email</span>
-                            </a>
-                            <a class="link-chip" href="#projects">
-                                <span>Projects</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 最近在做什么 -->
-            <section class="card">
-                <div class="section-title-row">
-                    <h2 class="section-title">Now</h2>
-                    <p class="section-extra">这个版块随心更新：我最近在干嘛。</p>
-                </div>
-
-                <div class="now-grid">
-                    <div class="now-item">
-                        <div class="now-label">
-                            学习
-                            <span class="pill-small">AI / Web</span>
-                        </div>
-                        <div class="now-main">
-                            把零碎的想法做成可视化的小网页。
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar"></div>
-                        </div>
-                    </div>
-
-                    <div class="now-item">
-                        <div class="now-label">
-                            项目
-                            <span class="pill-small">personal site</span>
-                        </div>
-                        <div class="now-main">
-                            正在把 GitHub Pages 改造成一个轻量 Dashboard。
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar alt" style="width: 45%;"></div>
-                        </div>
-                    </div>
-
-                    <div class="now-item">
-                        <div class="now-label">
-                            生活
-                            <span class="pill-small">chill mode</span>
-                        </div>
-                        <div class="now-main">
-                            保持一点点输出，一点点输入，别把生活做成压力表。
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar chill" style="width: 70%;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 时间线 -->
-                <div class="timeline">
-                    <div class="tl-item">
-                        <div class="tl-meta">最近 · 创建这个站点</div>
-                        <div class="tl-text">
-                            用 GitHub Pages 搭了一个新主页，决定不再只做“学术简历”，
-                            而是记录更多真实的日常和实验。
-                        </div>
-                    </div>
-                    <div class="tl-item">
-                        <div class="tl-meta">最近 · 折腾 UI / Dashboard 设计</div>
-                        <div class="tl-text">
-                            在模仿各种 Dashboard 风格，把学习计划、项目进度做成更好玩的卡片。
-                        </div>
-                    </div>
-                    <div class="tl-item">
-                        <div class="tl-meta">未来 · TBD</div>
-                        <div class="tl-text">
-                            想做一个「自己用着顺手」的个人控制台：习惯追踪、学习记录、项目看板，全在这页。
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 项目 / 玩具 -->
-            <section class="card" id="projects">
-                <div class="section-title-row">
-                    <h2 class="section-title">Projects</h2>
-                    <p class="section-extra">一些正在做 / 想做 / 已经做完的东西。</p>
-                </div>
-
-                <div class="projects">
-                    <article class="project-card">
-                        <div class="project-tag-row">
-                            <div class="project-tag">Web · Dashboard</div>
-                            <div class="project-dot"></div>
-                        </div>
-                        <h3 class="project-name">Personal Life Dashboard</h3>
-                        <p class="project-desc">
-                            把日程、学习、任务和心情做成一个小控制面板。
-                            前端为纯 HTML / CSS / JS，部署在 GitHub Pages。
-                        </p>
-                        <div class="project-meta">
-                            <span class="project-pill">进行中</span>
-                            <!-- 把这里的链接换成真实 repo -->
-                            <a class="project-link" href="https://github.com/AI-Ze" target="_blank" rel="noreferrer">
-                                view on GitHub →
-                            </a>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-tag-row">
-                            <div class="project-tag">AI · notes</div>
-                            <div class="project-dot"></div>
-                        </div>
-                        <h3 class="project-name">AI Playground</h3>
-                        <p class="project-desc">
-                            把平时试验的小 AI 想法整理在一起：
-                            prompt、可视化、小 demo，慢慢长成一个「实验花园」。
-                        </p>
-                        <div class="project-meta">
-                            <span class="project-pill">构思中</span>
-                            <span class="project-link">coming soon</span>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-tag-row">
-                            <div class="project-tag">Life · log</div>
-                            <div class="project-dot"></div>
-                        </div>
-                        <h3 class="project-name">Tiny Logs</h3>
-                        <p class="project-desc">
-                            一些一句话的日常记录，可能是今天看到的一句话、
-                            一个 bug、一个突发奇想。
-                        </p>
-                        <div class="project-meta">
-                            <span class="project-pill">轻量更新</span>
-                            <span class="project-link">just for myself</span>
-                        </div>
-                    </article>
-                </div>
-            </section>
-        </section>
-
-        <!-- 右侧侧栏 -->
-        <aside class="column-side">
-            <!-- 小习惯 / 小目标 -->
-            <section class="card">
-                <div class="section-title-row">
-                    <h2 class="section-title">Habits & Goals</h2>
-                    <p class="section-extra">一点点、慢慢来。</p>
-                </div>
-
-                <div class="habit-list">
-                    <div class="habit-item">
-                        <div class="habit-row">
+                <!-- 个人信息卡 -->
+                <div class="col-xl-7 col-lg-7 mb-lg-0 mb-4">
+                    <div class="card blur shadow-blur">
+                        <div class="card-header pb-0 d-flex justify-content-between align-items-center">
                             <div>
-                                <div class="habit-name">写下今天学到的一件小事</div>
-                                <div class="habit-meta">不需要很厉害，只要真实。</div>
+                                <p class="text-xs text-secondary mb-1 text-uppercase">Profile</p>
+                                <h6 class="mb-0">AI Ze</h6>
                             </div>
-                            <span class="habit-pill">几乎每天</span>
+                            <span class="badge bg-gradient-success text-xs">个人网站 · v1</span>
                         </div>
-                        <div class="habit-bar">
-                            <div class="habit-bar-inner"></div>
+                        <div class="card-body pt-3 pb-3">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="icon icon-shape bg-gradient-success shadow text-center border-radius-xl d-flex align-items-center justify-content-center me-3"
+                                    style="width:56px;height:56px;">
+                                    <span class="text-lg text-white fw-bold">ZE</span>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Hi, 我是 AI Ze 👋</h6>
+                                    <p class="text-sm text-secondary mb-0">
+                                        这是一个用 Soft UI Dashboard 改造的 <strong>个人控制面板</strong>，
+                                        主要拿来记录：学习、项目进度，还有一些乱七八糟的想法。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4 col-6">
+                                    <small class="text-uppercase text-secondary text-xxs font-weight-bolder">标签</small>
+                                    <p class="text-sm mb-0">AI / Web / 记录</p>
+                                </div>
+                                <div class="col-md-4 col-6">
+                                    <small class="text-uppercase text-secondary text-xxs font-weight-bolder">状态</small>
+                                    <p class="text-sm mb-0">慢慢折腾中</p>
+                                </div>
+                                <div class="col-md-4 col-12 mt-2 mt-md-0">
+                                    <small class="text-uppercase text-secondary text-xxs font-weight-bolder">链接</small>
+                                    <div>
+                                        <a href="mailto:your_mail@example.com"
+                                            class="text-sm text-success d-block">Email</a>
+                                        <a href="https://github.com/AI-Ze" target="_blank"
+                                            class="text-sm text-success d-block">GitHub</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="horizontal dark my-3">
+
+                            <div class="row">
+                                <div class="col-sm-4 mb-2">
+                                    <span class="text-xs text-secondary text-uppercase">方向</span>
+                                    <p class="text-sm mb-0">AI / 前端 / 个人工具</p>
+                                </div>
+                                <div class="col-sm-4 mb-2">
+                                    <span class="text-xs text-secondary text-uppercase">目前目标</span>
+                                    <p class="text-sm mb-0">做一个好用的「自己主页」</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <span class="text-xs text-secondary text-uppercase">一句话</span>
+                                    <p class="text-sm mb-0">不要太正式，先好玩一点。</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="habit-item">
-                        <div class="habit-row">
+                <!-- 最近在做什么卡 -->
+                <div class="col-xl-5 col-lg-5">
+                    <div class="card h-100">
+                        <div class="card-header pb-0">
+                            <p class="text-xs text-secondary mb-1 text-uppercase">Now</p>
+                            <h6 class="mb-0">最近在做什么</h6>
+                        </div>
+                        <div class="card-body pt-2">
+                            <div class="mb-3">
+                                <h6 class="text-sm mb-1">1. 把 GitHub Pages 搞定 ✅</h6>
+                                <p class="text-xs text-secondary mb-0">
+                                    新建了 <code>AI-Ze.github.io</code> 仓库，配置 SSH，成功 push 第一个版本。
+                                </p>
+                            </div>
+
+                            <div class="mb-3">
+                                <h6 class="text-sm mb-1">2. 用 Soft UI 改造成个人主页</h6>
+                                <p class="text-xs text-secondary mb-1">
+                                    不是那种「很学术」的主页，而是偏 Dashboard 的、可以随时乱写点东西。
+                                </p>
+                                <div class="d-flex align-items-center">
+                                    <span class="text-xxs me-2 text-secondary">进度</span>
+                                    <div class="progress w-100">
+                                        <div class="progress-bar bg-gradient-success" role="progressbar"
+                                            style="width: 40%;" aria-valuenow="40" aria-valuemin="0"
+                                            aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div>
-                                <div class="habit-name">把想法做成小 demo</div>
-                                <div class="habit-meta">哪怕只是一个按钮 / 一段文字。</div>
+                                <h6 class="text-sm mb-1">3. 想做的东西</h6>
+                                <ul class="list-group">
+                                    <li class="list-group-item border-0 px-0 d-flex justify-content-between">
+                                        <div>
+                                            <p class="text-xs mb-0">学习 / 阅读记录</p>
+                                            <span class="text-xxs text-secondary">做成一个简易时间线 + 标签</span>
+                                        </div>
+                                        <span class="badge bg-gradient-info text-xxs">计划中</span>
+                                    </li>
+                                    <li class="list-group-item border-0 px-0 d-flex justify-content-between">
+                                        <div>
+                                            <p class="text-xs mb-0">小项目展示</p>
+                                            <span class="text-xxs text-secondary">把 GitHub repo 挑几个挂上来</span>
+                                        </div>
+                                        <span class="badge bg-gradient-success text-xxs">很想做</span>
+                                    </li>
+                                    <li class="list-group-item border-0 px-0 d-flex justify-content-between">
+                                        <div>
+                                            <p class="text-xs mb-0">日常碎碎念</p>
+                                            <span class="text-xxs text-secondary">写一点真实的人类废话</span>
+                                        </div>
+                                        <span class="badge bg-gradient-warning text-xxs">看心情</span>
+                                    </li>
+                                </ul>
                             </div>
-                            <span class="habit-pill">正在练习</span>
-                        </div>
-                        <div class="habit-bar">
-                            <div class="habit-bar-inner low"></div>
+
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="habit-item">
-                        <div class="habit-row">
+            <!-- 第二行：项目列表 + 习惯 / 小目标 -->
+            <div class="row mt-4">
+
+                <!-- Projects -->
+                <div class="col-xl-8 col-lg-8 mb-lg-0 mb-4">
+                    <div class="card">
+                        <div class="card-header pb-0 d-flex justify-content-between align-items-center">
                             <div>
-                                <div class="habit-name">不把主页当作“作品展厅”</div>
-                                <div class="habit-meta">更像一个真实的工作台。</div>
+                                <p class="text-xs text-secondary mb-1 text-uppercase">Projects</p>
+                                <h6 class="mb-0">一些想记录 / 展示的东西</h6>
                             </div>
-                            <span class="habit-pill">心态建设</span>
+                            <span class="text-xs text-secondary">以后可以拆成多页面</span>
                         </div>
-                        <div class="habit-bar">
-                            <div class="habit-bar-inner" style="width: 55%;"></div>
+                        <div class="card-body pt-2">
+
+                            <div class="table-responsive">
+                                <table class="table align-items-center mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                项目
+                                            </th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                类型
+                                            </th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                状态
+                                            </th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                链接
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md me-2 d-flex align-items-center justify-content-center"
+                                                            style="width:36px;height:36px;">
+                                                            <i class="ni ni-laptop text-white text-sm"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Personal Dashboard</h6>
+                                                        <p class="text-xs text-secondary mb-0">当前这个主页本身</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">Web / UI</p>
+                                                <p class="text-xs text-secondary mb-0">Soft UI + GitHub Pages</p>
+                                            </td>
+                                            <td class="align-middle text-center text-sm">
+                                                <span class="badge badge-sm bg-gradient-success">进行中</span>
+                                            </td>
+                                            <td class="align-middle text-center text-xs">
+                                                <a href="https://github.com/AI-Ze/AI-Ze.github.io" target="_blank"
+                                                    class="text-success">
+                                                    源码
+                                                </a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <div class="icon icon-shape bg-gradient-warning shadow text-center border-radius-md me-2 d-flex align-items-center justify-content-center"
+                                                            style="width:36px;height:36px;">
+                                                            <i class="ni ni-chat-round text-white text-sm"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">AI Playground</h6>
+                                                        <p class="text-xs text-secondary mb-0">随便试验的 AI 小东西</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">Notes / Demo</p>
+                                                <p class="text-xs text-secondary mb-0">之后可以拆页面</p>
+                                            </td>
+                                            <td class="align-middle text-center text-sm">
+                                                <span class="badge badge-sm bg-gradient-secondary">构思中</span>
+                                            </td>
+                                            <td class="align-middle text-center text-xs">
+                                                <span class="text-secondary">coming soon</span>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <div class="icon icon-shape bg-gradient-info shadow text-center border-radius-md me-2 d-flex align-items-center justify-content-center"
+                                                            style="width:36px;height:36px;">
+                                                            <i class="ni ni-calendar-grid-58 text-white text-sm"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Tiny Logs</h6>
+                                                        <p class="text-xs text-secondary mb-0">一句话日常 / 想法记录</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">Life log</p>
+                                                <p class="text-xs text-secondary mb-0">轻量更新</p>
+                                            </td>
+                                            <td class="align-middle text-center text-sm">
+                                                <span class="badge badge-sm bg-gradient-info">随缘</span>
+                                            </td>
+                                            <td class="align-middle text-center text-xs">
+                                                <span class="text-secondary">just for myself</span>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-            </section>
 
-            <!-- 联系方式 / 小档案 -->
-            <section class="card">
-                <div class="section-title-row">
-                    <h2 class="section-title">Profile</h2>
-                    <p class="section-extra">一些基本信息。</p>
+                <!-- 习惯 & 小目标 -->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header pb-0">
+                            <p class="text-xs text-secondary mb-1 text-uppercase">Habits & Goals</p>
+                            <h6 class="mb-0">一点点，慢慢来</h6>
+                        </div>
+                        <div class="card-body pt-2">
+
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <p class="text-sm mb-0">写下今天学到的一件小事</p>
+                                    <span class="badge bg-gradient-success text-xxs">正在练</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-gradient-success" style="width: 70%;"></div>
+                                </div>
+                                <p class="text-xxs text-secondary mt-1">不需要高级，只要真实。</p>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <p class="text-sm mb-0">把想法做成小 demo</p>
+                                    <span class="badge bg-gradient-info text-xxs">目标</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-gradient-info" style="width: 40%;"></div>
+                                </div>
+                                <p class="text-xxs text-secondary mt-1">哪怕只是一个按钮 / 一段文字。</p>
+                            </div>
+
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <p class="text-sm mb-0">不把主页当作“作品展厅”</p>
+                                    <span class="badge bg-gradient-warning text-xxs">心态</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-gradient-warning" style="width: 55%;"></div>
+                                </div>
+                                <p class="text-xxs text-secondary mt-1">更像一个真实的工作台。</p>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <div class="contact-label">Location</div>
-                        <div class="contact-value">Somewhere between code & coffee</div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">Email</div>
-                        <div class="contact-value">
-                            <a href="mailto:your_mail@example.com">your_mail@example.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">GitHub</div>
-                        <div class="contact-value">
-                            <a href="https://github.com/AI-Ze" target="_blank" rel="noreferrer">
-                                github.com/AI-Ze
-                            </a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">Also</div>
-                        <div class="contact-value">
-                            可以放微信公众号 / B 站 / 小红书 / 任何你想公开的账号。
+            <!-- 底部小字 -->
+            <footer class="footer pt-4">
+                <div class="container-fluid">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-lg-8 mb-lg-0 mb-2">
+                            <div class="text-xs text-muted">
+                                Built with <span class="text-success">Soft UI Dashboard</span> · Deployed on GitHub
+                                Pages · Content by AI Ze
+                            </div>
                         </div>
                     </div>
                 </div>
+            </footer>
 
-                <p class="footer-note">
-                    Built with HTML &amp; CSS · Deployed on GitHub Pages
-                </p>
-            </section>
-        </aside>
+        </div>
     </main>
+
+    <!-- Soft UI / Bootstrap JS（可选，但留着更稳） -->
+    <script src="https://demos.creative-tim.com/soft-ui-dashboard/assets/js/core/popper.min.js"></script>
+    <script src="https://demos.creative-tim.com/soft-ui-dashboard/assets/js/core/bootstrap.min.js"></script>
+    <script src="https://demos.creative-tim.com/soft-ui-dashboard/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="https://demos.creative-tim.com/soft-ui-dashboard/assets/js/soft-ui-dashboard.min.js?v=1.1.0"></script>
 </body>
 
 </html>
