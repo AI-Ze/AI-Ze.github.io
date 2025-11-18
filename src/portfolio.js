@@ -25,7 +25,7 @@ const greeting = {
   subTitle:
     "I am an undergraduate student at the School of Information and Communication Engineering, Communication University of China, and a member of the Multimedia Intelligent Processing Group (MIPG).",
   resumeLink: "",
-  portfolio_repository: "https://github.com/AI-Ze/AI-Ze.github.io",
+  portfolio_repository: "https://github.com/CUC-Chen",
   githubProfile: "https://github.com/CUC-Chen",
 };
 
@@ -51,8 +51,8 @@ const skills = {
       title: "Computer Vision & Machine Learning",
       fileName: "DataScienceImg",
       skills: [
-        "⚡ AIGC: Focused on controllable video generation and video editing",
-        "⚡ AI for Science: Mathematical and physical equations, optics applications",
+        "⚡ AIGC: Controllable Video Generation and Video Editing",
+        "⚡ AI for Science: Mathematical Physical Equations, Optics",
       ],
       softwareSkills: [
         {
