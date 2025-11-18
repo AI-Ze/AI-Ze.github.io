@@ -19,11 +19,11 @@ const seo = {
 
 //Home Page
 const greeting = {
-  title: "Ze Chen",
+  title: "Ze Chen (陈泽)",
   logo_name: "Ze Chen",
-  nickname: "陈泽",
+  nickname: "",
   subTitle:
-    "Undergraduate student at Communication University of China, passionate about computer vision and deep generative models. Currently focused on research in image quality assessment and Kolmogorov-Arnold networks.",
+    "I am an undergraduate student at the School of Information and Communication Engineering, Communication University of China, and a member of the Multimedia Intelligent Processing Group (MIPG). My academic interests lie in computer vision, and I am currently focused on research in deep generative models.",
   resumeLink: "",
   portfolio_repository: "https://github.com/AI-Ze/AI-Ze.github.io",
   githubProfile: "https://github.com/CUC-Chen",
@@ -39,7 +39,7 @@ const socialMediaLinks = [
   },
   {
     name: "Gmail",
-    link: "mailto:your.email@example.com",
+    link: "mailto:chenze@cuc.edu.cn",
     fontAwesomeIcon: "fa-google", // Reference https://fontawesome.com/icons/google?style=brands
     backgroundColor: "#D14836", // Reference https://simpleicons.org/?q=gmail
   },
