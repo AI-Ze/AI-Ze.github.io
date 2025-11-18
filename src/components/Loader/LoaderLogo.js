@@ -25,20 +25,20 @@ class LogoLoader extends React.Component {
           stroke={theme.body}
           stroke-width="4"
         />
-        <path
+        <text
           class="letter"
-          d="M180 90 L180 140 L230 90 M180 115 L220 115"
+          x="225"
+          y="140"
+          font-family="Georgia, serif"
+          font-size="70"
+          font-weight="bold"
+          fill="none"
           stroke={theme.body}
           stroke-width="3"
-          fill="none"
-        />
-        <path
-          class="letter"
-          d="M240 90 Q260 90 260 110 Q260 125 245 130 Q260 135 260 150 Q260 170 240 170 L240 90 M240 110 L250 110 Q255 110 255 120 Q255 125 250 125 L240 125 M240 135 L250 135 Q258 135 258 150 Q258 160 250 160 L240 160"
-          stroke={theme.body}
-          stroke-width="3"
-          fill="none"
-        />
+          text-anchor="middle"
+        >
+          ZC
+        </text>
         <text
           class="signature"
           x="220"
