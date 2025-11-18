@@ -119,11 +119,11 @@ const degrees = {
       subtitle: "B.Eng. in Artificial Intelligence",
       logo_path: "cuc_logo.png",
       alt_name: "CUC",
-      duration: "2023 - Present",
+      duration: "September 2023 - Present",
       descriptions: [
-        "⚡ Member of the Multimedia Intelligent Processing Group (MIPG) at State Key Laboratory of Media Convergence and Communication",
-        "⚡ Focused on computer vision research, particularly in image quality assessment and deep generative models",
-        "⚡ Published research on Kolmogorov-Arnold networks for image quality assessment at ICASSP 2025 and JVCIR",
+        "⚡ Undergraduate Studies at School of Information and Communication Engineering",
+        "⚡ Member of the Multimedia Intelligent Processing Group (MIPG)",
+        "⚡ Research focus on computer vision and deep generative models",
       ],
       website_link: "https://www.cuc.edu.cn/",
     },
@@ -132,11 +132,11 @@ const degrees = {
       subtitle: "High School Education",
       logo_path: "shixi_logo.png",
       alt_name: "Shanghai Shixi High School",
-      duration: "2020 - 2023",
+      duration: "September 2020 - June 2023",
       descriptions: [
-        "⚡ Research intern at School of Physics and Astronomy, Shanghai Jiao Tong University (2021-2023)",
-        "⚡ Developed strong foundation in mathematics and physics",
-        "⚡ Early exposure to scientific research methodologies",
+        "⚡ Completed high school education with strong foundation in mathematics and physics",
+        "⚡ Early research experience at Shanghai Jiao Tong University",
+        "⚡ Developed interest in scientific research and AI",
       ],
       website_link: "https://www.shsxhs.cn/",
     },
@@ -149,14 +149,14 @@ const certifications = {
 
 // Experience Page
 const experience = {
-  title: "Research Experience",
-  subtitle: "Research Internships and Academic Work",
+  title: "Experience",
+  subtitle: "Education and Research",
   description:
-    "I am passionate about computer vision research, particularly in image quality assessment and deep generative models. My research focuses on developing novel neural architectures and applying them to real-world problems.",
+    "My academic journey and research experiences in computer vision, AIGC, and AI for Science.",
   header_image_path: "experience.svg",
   sections: [
     {
-      title: "Research",
+      title: "Research Experiences",
       work: true,
       experiences: [
         {
@@ -165,20 +165,20 @@ const experience = {
           company_url: "https://www.cuc.edu.cn/",
           logo_path: "cuc_logo.png",
           duration: "September 2024 - Present",
-          location: "Beijing, China",
+          location: "Communication University of China, Beijing",
           description:
-            "Working on computer vision research at the State Key Laboratory of Media Convergence and Communication. Focus on image quality assessment, Kolmogorov-Arnold networks, and deep generative models. Published papers at ICASSP 2025 and JVCIR.",
+            "Research at State Key Laboratory of Media Convergence and Communication. Focus on computer vision, image quality assessment, and Kolmogorov-Arnold networks. Published papers at ICASSP 2025 and JVCIR on novel neural architectures for IQA.",
           color: "#0C9D58",
         },
         {
           title: "Research Intern",
-          company: "Shanghai Jiao Tong University",
+          company: "School of Physics and Astronomy",
           company_url: "https://www.sjtu.edu.cn/",
           logo_path: "sjtu_logo.png",
           duration: "July 2021 - January 2023",
-          location: "Shanghai, China",
+          location: "Shanghai Jiao Tong University, Shanghai",
           description:
-            "Research intern at School of Physics and Astronomy. Worked on physics-related computational projects and developed strong analytical and research skills. Gained early exposure to scientific research methodologies and academic writing.",
+            "Early research experience in physics and computational science. Worked on mathematical and physical equations, developing strong analytical skills and research methodologies. This experience sparked my interest in AI for Science.",
           color: "#0C4DA2",
         },
       ],
