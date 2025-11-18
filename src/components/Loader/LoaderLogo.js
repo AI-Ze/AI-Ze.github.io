@@ -37,7 +37,7 @@ class LogoLoader extends React.Component {
           stroke-width="3"
           text-anchor="middle"
         >
-          ZC
+          Ze
         </text>
         <text
           class="signature"
