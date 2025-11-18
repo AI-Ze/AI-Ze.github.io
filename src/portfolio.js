@@ -157,13 +157,12 @@ const experience = {
   sections: [
     {
       title: "Research Experiences",
-      work: true,
       experiences: [
         {
           title: "Research Intern",
           company: "Multimedia Intelligent Processing Group (MIPG)",
           company_url: "https://www.cuc.edu.cn/",
-          logo_path: "cuc_logo.png",
+          logo_path: "iiitk_logo.png",
           duration: "September 2024 - Present",
           location: "Communication University of China, Beijing",
           description:
@@ -174,7 +173,7 @@ const experience = {
           title: "Research Intern",
           company: "School of Physics and Astronomy",
           company_url: "https://www.sjtu.edu.cn/",
-          logo_path: "sjtu_logo.png",
+          logo_path: "stanford_logo.png",
           duration: "July 2021 - January 2023",
           location: "Shanghai Jiao Tong University, Shanghai",
           description:
