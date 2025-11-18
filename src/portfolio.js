@@ -2,7 +2,7 @@
 
 // Website related settings
 const settings = {
-  isSplash: true, // Change this to false if you don't want Splash screen.
+  isSplash: false, // Change this to false if you don't want Splash screen.
 };
 
 //SEO Related settings
@@ -20,7 +20,7 @@ const seo = {
 //Home Page
 const greeting = {
   title: "Ze Chen",
-  logo_name: "ZeChen",
+  logo_name: "Ze Chen",
   nickname: "陈泽",
   subTitle:
     "Undergraduate student at Communication University of China, passionate about computer vision and deep generative models. Currently focused on research in image quality assessment and Kolmogorov-Arnold networks.",
