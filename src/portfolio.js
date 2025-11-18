@@ -23,7 +23,7 @@ const greeting = {
   logo_name: "Ze Chen",
   nickname: "",
   subTitle:
-    "I am an undergraduate student at the School of Information and Communication Engineering, Communication University of China, and a member of the Multimedia Intelligent Processing Group (MIPG). My academic interests lie in computer vision, and I am currently focused on research in deep generative models.",
+    "I am an undergraduate student at the School of Information and Communication Engineering, Communication University of China, and a member of the Multimedia Intelligent Processing Group (MIPG).",
   resumeLink: "",
   portfolio_repository: "https://github.com/AI-Ze/AI-Ze.github.io",
   githubProfile: "https://github.com/CUC-Chen",
@@ -38,7 +38,7 @@ const socialMediaLinks = [
     backgroundColor: "#181717", // Reference https://simpleicons.org/?q=github
   },
   {
-    name: "Gmail",
+    name: "E-mail",
     link: "mailto:chenze@cuc.edu.cn",
     fontAwesomeIcon: "fa-google", // Reference https://fontawesome.com/icons/google?style=brands
     backgroundColor: "#D14836", // Reference https://simpleicons.org/?q=gmail
@@ -48,12 +48,11 @@ const socialMediaLinks = [
 const skills = {
   data: [
     {
-      title: "Computer Vision & Deep Learning",
+      title: "Computer Vision & Machine Learning",
       fileName: "DataScienceImg",
       skills: [
-        "⚡ Research in image quality assessment and deep generative models",
-        "⚡ Experience with Kolmogorov-Arnold networks and neural architecture design",
-        "⚡ Developing models for realistic image sharpness assessment and blind IQA",
+        "⚡ AIGC: Focused on controllable video generation and video editing",
+        "⚡ AI for Science: Mathematical and physical equations, optics applications",
       ],
       softwareSkills: [
         {
